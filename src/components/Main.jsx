@@ -17,10 +17,10 @@ const Main = ({ theme, setTheme, data, setData }) => {
           <All data={data} setData={setData} theme={theme}/>
         </Route>
         <Route path="/active">
-          <Active data={data} setData={setData} />
+          <Active data={data} setData={setData} theme={theme}/>
         </Route>
         <Route path="/completed">
-          <Completed data={data} setData={setData} />
+          <Completed data={data} setData={setData} theme={theme}/>
         </Route>
       </Switch>
     </StyledMain>

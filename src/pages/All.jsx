@@ -64,8 +64,6 @@ const StyledAll = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  /* border: 1px solid black; */
-  /* box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5); */
   box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   padding: 10px;
@@ -77,18 +75,13 @@ const StyledAll = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
-    /* margin: 5px; */
+    font-size: 1rem;
     border-bottom: 1px solid;
     padding: 15px;
     overflow: hidden;
     .font {
       margin-right: 10px;
     }
-  }
-  .active {
-  }
-  .complete {
   }
 `;
 

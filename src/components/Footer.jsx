@@ -20,7 +20,7 @@ const Footer = ({ data, setData, theme }) => {
         boxShadow: `${theme} ? "0px 0px 5px #87a1f4" : ""`,
       }}
     >
-      {activeNumber + " items left"}
+      <p>{activeNumber + " items left"}</p>
       <Link className="link" to="/">
         <span
           style={{
@@ -29,7 +29,6 @@ const Footer = ({ data, setData, theme }) => {
           }}
         >
           All
-         
         </span>
       </Link>
       <Link className="link" to="/active">
@@ -65,12 +64,13 @@ const StyledFooter = styled.div`
   align-items: center;
   margin: 0 auto;
   border-radius: 10px;
-  margin-top: 70vh;
   position: sticky;
   bottom: 10px;
   left: 0;
   right: 0;
   padding: 5px;
+  margin-top: 70vh;
+  /* margin-top: 30px; */
   @media only screen and (max-width: 768px) {
     width: 90%;
   }
@@ -119,6 +119,7 @@ const StyledFooter = styled.div`
   p {
     cursor: pointer;
     transition: all 0.3s;
+    font-size: 12px;
     &:hover {
       color: #701b79;
     }
