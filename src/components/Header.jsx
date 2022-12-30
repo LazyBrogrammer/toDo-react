@@ -21,6 +21,11 @@ const Header = ({ theme, setTheme, data, setData }) => {
       setPlace('Enter a Text!')
     }
   };
+  const handleEnter = (e) => {
+    if (e.key === 'Enter') {
+      addToDo()
+    }
+  }
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -49,7 +54,7 @@ const Header = ({ theme, setTheme, data, setData }) => {
           className="input__icon"
           style={{ borderColor: `${theme ? "#ae6bef" : "#B564EF"}` }}
           onClick={addToDo}
-          
+
         ></div>
         <div className="input">
           <input
@@ -62,6 +67,7 @@ const Header = ({ theme, setTheme, data, setData }) => {
             placeholder={place}
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
+            onKeyUp={handleEnter}
           />
         </div>
         <div className="input__clear"></div>
