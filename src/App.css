@@ -9,6 +9,22 @@ body {
 .App {
   width: 100%;
 }
-html, body {
+html,
+body {
   height: 100%;
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #87a1f4;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #944adf;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
 }

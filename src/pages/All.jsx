@@ -42,7 +42,7 @@ const StyledAll = styled.div`
     width: 90%;
   }
 `;
-const StyledCompleted = styled.div`
-  background-color: yellow;
-`;
+// const StyledCompleted = styled.div`
+//   background-color: yellow;
+// `;
 export default All;

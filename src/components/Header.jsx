@@ -123,8 +123,8 @@ const Input = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   border-radius: 5px;
+
   @media only screen and (max-width: 768px) {
     width: 90%;
   }
@@ -143,7 +143,6 @@ const Input = styled.div`
       border: none;
       outline: none;
       font-size: 1.2rem;
-      background: #715050;
       &:focus {
         border-bottom: 5px solid #ae6bef;
       }
