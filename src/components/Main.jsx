@@ -14,7 +14,7 @@ const Main = ({ theme, setTheme, data, setData }) => {
       <Header theme={theme} setTheme={setTheme} data={data} setData={setData} />
       <Switch>
         <Route path="/" exact>
-          <All data={data} setData={setData} />
+          <All data={data} setData={setData} theme={theme}/>
         </Route>
         <Route path="/active">
           <Active data={data} setData={setData} />
@@ -27,5 +27,7 @@ const Main = ({ theme, setTheme, data, setData }) => {
   );
 };
 
-const StyledMain = styled.div``;
+const StyledMain = styled.div`
+
+`;
 export default Main;

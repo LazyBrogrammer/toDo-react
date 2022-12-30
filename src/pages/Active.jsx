@@ -1,9 +1,9 @@
 import React from 'react';
-
+import styled from 'styled-components';
 const Active = ({ data, setData }) => {
     const activeData = data.filter((item) => item.isComplete === false);
   return (
-    <div>
+    <StyledActive>
         {activeData.slice().reverse().map((item) => {
             return (
                 <div key={item.id}>
@@ -11,7 +11,11 @@ const Active = ({ data, setData }) => {
                 </div>
             )
         })}
-    </div>
+    </StyledActive>
   );
 };
+
+const StyledActive = styled.div`
+    
+`
 export default Active;

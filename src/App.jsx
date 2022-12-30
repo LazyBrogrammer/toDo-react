@@ -12,9 +12,9 @@ const App = () => {
   const [data, setData] = useState(localData || []);
   localStorage.setItem("jsonData", JSON.stringify(data));
   return (
-    <StyledApp>
+    <StyledApp style={{ background: `${theme ? "#fff" : "#171823"}` }}>
       <Main theme={theme} setTheme={setTheme} data={data} setData={setData} />
-      <Footer data={data} setData={setData} />
+      <Footer data={data} setData={setData} theme={theme} />
     </StyledApp>
   );
 };
@@ -22,5 +22,6 @@ const App = () => {
 const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
 `
 export default App;

@@ -1,31 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-
-const All = ({ data, setData }) => {
+const All = ({ data, setData, theme }) => {
   const handleActive = (index) => {
     data.slice().reverse()[index].isComplete = true;
     setData([...data]);
   };
-  const CompletedItem = ({ text }) => {
-    return (
-      <StyledCompleted>
-        <h1>completed item</h1>
-      </StyledCompleted>
-    );
+  const CompletedItem = ({}) => {
+    return <StyledCompleted></StyledCompleted>;
   };
   const ActiveItem = () => {
-    return (
-      <StyledActiveItem>
-        <h1>completed item</h1>
-      </StyledActiveItem>
-    );
+    return <StyledActiveItem></StyledActiveItem>;
   };
   const StyledActiveItem = styled.div`
     background-color: green;
   `;
   return (
-    <StyledAll>
+    <StyledAll style={{ background: `${theme} ? '#fff' : '#171823'` }}>
       {data
         .slice()
         .reverse()
@@ -40,7 +31,17 @@ const All = ({ data, setData }) => {
   );
 };
 
-const StyledAll = styled.div``;
+const StyledAll = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
+`;
 const StyledCompleted = styled.div`
   background-color: yellow;
 `;

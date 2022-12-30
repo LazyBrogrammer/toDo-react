@@ -77,7 +77,9 @@ const Header = ({ theme, setTheme, data, setData }) => {
 const StyledHeader = styled.div`
   width: 100%;
   min-height: 30vh;
-
+  position: sticky;
+  top: 0px;
+  margin-bottom: 10px;
   .header__head {
     width: 50%;
     display: flex;
