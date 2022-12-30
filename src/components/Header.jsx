@@ -11,25 +11,24 @@ import iconLight from "../images/icon-sun.svg";
 const Header = ({ theme, setTheme, data, setData }) => {
   const inputRef = useRef(null);
   const [inputValue, setInputValue] = useState("");
-  const [place, setPlace] = useState('Create a new toDo...')
+  const [place, setPlace] = useState("Create a new toDo...");
   const addToDo = () => {
     localStorage.clear();
     if (inputValue) {
       setData([...data, { text: inputValue, id: uuidv4(), isComplete: false }]);
-      setInputValue('')
+      setInputValue("");
     } else {
-      setPlace('Enter a Text!')
+      setPlace("Enter a Text!");
     }
   };
   const handleEnter = (e) => {
-    if (e.key === 'Enter') {
-      addToDo()
+    if (e.key === "Enter") {
+      addToDo();
     }
-  }
+  };
   useEffect(() => {
     inputRef.current.focus();
   }, []);
-
 
   return (
     <StyledHeader
@@ -54,7 +53,6 @@ const Header = ({ theme, setTheme, data, setData }) => {
           className="input__icon"
           style={{ borderColor: `${theme ? "#ae6bef" : "#B564EF"}` }}
           onClick={addToDo}
-
         ></div>
         <div className="input">
           <input
@@ -78,7 +76,8 @@ const Header = ({ theme, setTheme, data, setData }) => {
 
 const StyledHeader = styled.div`
   width: 100%;
-  height: 30vh;
+  min-height: 30vh;
+
   .header__head {
     width: 50%;
     display: flex;
@@ -109,6 +108,11 @@ const StyledHeader = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 768px) {
+    .header__head {
+      width: 90%;
+    }
+  }
 `;
 
 const Input = styled.div`
@@ -119,6 +123,9 @@ const Input = styled.div`
   align-items: center;
   box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   border-radius: 5px;
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
   .input__icon {
     width: 20px;
     height: 20px;

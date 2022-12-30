@@ -11,13 +11,16 @@ const App = () => {
   const [theme, setTheme] = useState(true);
   const [data, setData] = useState(localData || []);
   localStorage.setItem("jsonData", JSON.stringify(data));
-  console.log(JSON.parse(localStorage.getItem("jsonData")));
   return (
-    <div className="App">
+    <StyledApp>
       <Main theme={theme} setTheme={setTheme} data={data} setData={setData} />
       <Footer data={data} setData={setData} />
-    </div>
+    </StyledApp>
   );
 };
 
+const StyledApp = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 export default App;

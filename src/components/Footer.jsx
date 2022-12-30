@@ -31,5 +31,6 @@ const Footer = ({ data, setData }) => {
   );
 };
 const StyledFooter = styled.div`
+display: flex;
 `;
 export default Footer;
