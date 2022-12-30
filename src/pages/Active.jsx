@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleNotch,
+} from "@fortawesome/free-solid-svg-icons";
 const Active = ({ data, setData }) => {
     const activeData = data.filter((item) => item.isComplete === false);
   return (
@@ -7,7 +11,8 @@ const Active = ({ data, setData }) => {
         {activeData.slice().reverse().map((item) => {
             return (
                 <div key={item.id}>
-                    <h2>{item.text}</h2>
+                    <FontAwesomeIcon icon={faCircleNotch} />
+                    <p>{item.text}</p>
                 </div>
             )
         })}
@@ -16,6 +21,9 @@ const Active = ({ data, setData }) => {
 };
 
 const StyledActive = styled.div`
-    
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 export default Active;
