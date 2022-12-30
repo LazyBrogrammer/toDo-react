@@ -10,9 +10,21 @@ import iconLight from "../images/icon-sun.svg";
 
 const Header = ({ theme, setTheme, data, setData }) => {
   const inputRef = useRef(null);
+  const [inputValue, setInputValue] = useState("");
+  const [place, setPlace] = useState('Create a new toDo...')
+  const addToDo = () => {
+    localStorage.clear();
+    if (inputValue) {
+      setData([...data, { text: inputValue, id: uuidv4(), isComplete: false }]);
+      setInputValue('')
+    } else {
+      setPlace('Enter a Text!')
+    }
+  };
   useEffect(() => {
     inputRef.current.focus();
-  }, [])
+  }, []);
+
 
   return (
     <StyledHeader
@@ -32,20 +44,24 @@ const Header = ({ theme, setTheme, data, setData }) => {
           />
         </div>
       </div>
-      <Input style={{ background: `${theme ? "#fff" : "#000"}` }}>
+      <Input style={{ background: `${theme ? "#fff" : "#25273D"}` }}>
         <div
           className="input__icon"
-          style={{ borderColor: `${theme ? "#000" : "#c3c3c3"}` }}
+          style={{ borderColor: `${theme ? "#ae6bef" : "#B564EF"}` }}
+          onClick={addToDo}
+          
         ></div>
         <div className="input">
           <input
             type="text"
             style={{
-              background: `${theme ? "#fff" : "#000"}`,
-              color: `${theme ? '#000': '#fff'}`,
+              background: `${theme ? "#fff" : "#25273D"}`,
+              color: `${theme ? "#25273D" : "#fff"}`,
             }}
             ref={inputRef}
-            placeholder='Create a new to do...'
+            placeholder={place}
+            onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
           />
         </div>
         <div className="input__clear"></div>
@@ -100,7 +116,7 @@ const Input = styled.div`
   .input__icon {
     width: 20px;
     height: 20px;
-    border: 1px solid;
+    border: 2px solid;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -108,19 +124,13 @@ const Input = styled.div`
     width: 50%;
     input {
       width: 100%;
-      height: 40px;
+      height: 50px;
       border: none;
       outline: none;
       font-size: 1.2rem;
       background: #715050;
-      &:active {
-        /* border: 1px solid; */
-      }
-      &:hover {
-        /* border: 1px solid; */
-      }
       &:focus {
-        /* border: 1px solid; */
+        border-bottom: 5px solid #ae6bef;
       }
     }
   }
@@ -129,4 +139,5 @@ const Input = styled.div`
     height: 30px;
   }
 `;
+
 export default Header;
